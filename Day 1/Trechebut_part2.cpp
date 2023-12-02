@@ -1,7 +1,6 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <vector>
 
 using namespace std;
 
@@ -26,9 +25,11 @@ int main(){
     
     while(getline(input,stringAux)){
 
-
-        int firstPos = stringAux.find_first_of("0123456789");
-        int lastPos = stringAux.find_last_of("0123456789");
+        
+        int firstPos = stringAux.length(); //fim da linha
+        firstPos = stringAux.find_first_of("0123456789");
+        int lastPos = 0; // inicio da linha
+        lastPos =  stringAux.find_last_of("0123456789");
 
 
         finalchar[0] = stringAux[firstPos];
