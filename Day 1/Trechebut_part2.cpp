@@ -45,7 +45,7 @@ int main(){
                 if (stringAux[i] == numeros_string[j][0]){ //checka se o inicio é igual
                     bool igual = true;
 
-                    for (int k = 0 ; k < numeros_string[j].length(); k++){
+                    for (int k = 0 ; k < (int) numeros_string[j].length(); k++){
 
                         if(stringAux[i+k] != numeros_string[j][k] ){
                             igual = false;
