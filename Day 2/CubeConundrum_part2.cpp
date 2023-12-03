@@ -6,6 +6,11 @@
 
 using namespace std;
 
+int power(int* vetor){
+
+    return vetor[0]*vetor[1]*vetor[2];
+}
+
 int main()
 {
 
@@ -24,6 +29,7 @@ int main()
     int soma = 0;
     string stringRGB[3] = {"red", "green", "blue"};
     int numeroRGB[3] = {12, 13, 14};
+    int MaxRGB[3];
 
     // leitura do ficheiro
 
@@ -39,6 +45,9 @@ int main()
 
         bool valido = true;
         bool Num = false, inicioSet;
+        MaxRGB[0] = 0;
+        MaxRGB[1] = 0;
+        MaxRGB[2] = 0;
 
         for (size_t i = 0; i < auxStr.length(); i++)
         {
@@ -74,7 +83,9 @@ int main()
     
                 for (int j = 0; j < 3; j++)
                 {
-
+                    if (stringRGB[j] == colorStr && MaxRGB[j] < stoi(numberStr)){
+                        MaxRGB[j] = stoi(numberStr);
+                    }
                     if (stringRGB[j] == colorStr && stoi(numberStr) > numeroRGB[j])
                     {
 
@@ -87,11 +98,8 @@ int main()
             }
         }
 
-        if (valido)
-        {
-            cout << "valido -> game " << gameStr << endl;
-            soma += stoi(gameStr);
-        }
+        soma += power(MaxRGB);
+        
     }
 
     cout << soma;
