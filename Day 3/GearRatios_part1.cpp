@@ -115,6 +115,8 @@ int main()
 
     tamanhoLinhas = countLineChar();
 
+    cout << "tamanho linhas : " << tamanhoLinhas << endl;
+
     string linhasDefault(tamanhoLinhas, '.');
 
     //...logica do programa...
@@ -142,6 +144,7 @@ int main()
         }
         else if (k == lines - 1)
         { // ultima linha
+
             stringArray[0] = stringArray[1];
             stringArray[1] = stringArray[2];
             stringArray[2] = linhasDefault;
