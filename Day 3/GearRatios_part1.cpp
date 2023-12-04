@@ -15,6 +15,11 @@ bool validar(string *stringArray, int posFim, int numero)
 
     // set borders
     int inicio;
+    int arrayIndexMax = stringArray[1].length() -1;
+    if(posFim > arrayIndexMax){
+        sizeNum = sizeNum - 1;
+        posFim = arrayIndexMax;
+    }
 
     if (posFim - sizeNum - 1 > 0)
     {
@@ -24,6 +29,7 @@ bool validar(string *stringArray, int posFim, int numero)
     {
         inicio = 0;
     }
+
 
     // checkar lados
     if ((stringArray[1][posFim] != '.' && !isdigit(stringArray[1][posFim])) || (stringArray[1][inicio] != '.' && !isdigit(stringArray[1][inicio])))
@@ -167,7 +173,7 @@ int main()
                         numStr.clear(); // apaga vertor para o proximo numero
 
                         // checkar se numero tem simbolos a adjacentes para validar o mesmo
-                        if (validar(stringArray, i, numInt))
+                        if (validar(stringArray, i+1, numInt))
                         {
                             cout << "valido: " << numInt << endl;
                             result += numInt;
@@ -185,7 +191,7 @@ int main()
                         numInt = stoi(numString);
                         numStr.clear(); // apaga vertor para o proximo numero
                         // checkar se numero tem simbolos a adjacentes para validar o mesmo
-                        if (validar(stringArray, i, numInt))
+                        if (validar(stringArray, i+1, numInt))
                         {
                             cout << "valido: " << numInt << endl;
                             result += numInt;
